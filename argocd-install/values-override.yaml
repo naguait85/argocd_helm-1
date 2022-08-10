@@ -36,10 +36,14 @@ server:
     - name: argocd-apps
       namespace: argocd
       destination:
-        namespace: argocd
+        namespace: dev
         server: https://kubernetes.default.svc
       project: argocd
       source:
+        helm:
+          version: v3
+          valueFiles:
+          - values.yaml
         path: charts/helm-example
         repoURL: https://github.com/abhishakeonteddu/gitopps_repo.git
         targetRevision: HEAD
@@ -47,7 +51,7 @@ server:
           recurse: true
           jsonnet: {}
       syncPolicy:
-        automated: {}
+        automated:
           selfHeal: true
           prune: true
           
