@@ -43,7 +43,7 @@ kubectl -n argocd get secrets argocd-initial-admin-secret \
 
 Forward argocd-server service port 80 to localhost:8080 using kubectl.
 ```
-kubectl -n argocd port-forward service/argocd-server 8080:80
+kubectl -n argocd port-forward service/argocd-server 8080:80 &
 ```
 
 Browse http://localhost:8080 and login with initial admin password.
