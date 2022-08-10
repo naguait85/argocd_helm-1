@@ -30,13 +30,12 @@ server:
         repoURL: https://github.com/abhishakeonteddu/argocd_helm.git
         targetRevision: HEAD
       syncPolicy:
-
+        syncOptions:
+        - CreateNamespace=true
         automated:
           selfHeal: true
           prune: true
-    
-        syncOptions:
-        - CreateNamespace=true
+          allowEmpty: true
     
     - name: argocd-apps
       namespace: argocd
