@@ -34,11 +34,11 @@ server:
         - CreateNamespace=true
      
     - name: sample_application
-      namespace: dev
+      namespace: argocd
       destination:
         namespace: dev
         server: https://kubernetes.default.svc
-      project: default
+      project: argocd
       source:
         helm:
           version: v3
