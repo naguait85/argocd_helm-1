@@ -48,36 +48,6 @@ kubectl -n argocd port-forward service/argocd-server 8080:80
 
 Browse http://localhost:8080 and login with initial admin password.
 
-# Demo With Sample Application
-Create an application project definition file called *sample-project*.
-```
-cat << EOF > argocd-appprojects/sample-project.yaml
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: sample-project
-  namespace: argocd
-spec:
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  destinations:
-  - namespace: sample-app
-    server: https://kubernetes.default.svc
-  orphanedResources:
-    warn: false
-  sourceRepos:
-  - '*'
-EOF
-```
-
-Push changes to your repository.
-```
-git add argocd-appprojects/sample-project.yaml
-git commit -m "Create sample-project"
-git push
-```
-
 Create a saple applicaiton definition yaml file called *sample-app* under argocd-apps.
 ```
 cat << EOF >> argocd-apps/sample-app.yaml
@@ -92,8 +62,8 @@ spec:
     server: https://kubernetes.default.svc
   project: sample-project
   source:
-    path: sample-app/
-    repoURL: https://github.com/kurtburak/argocd.git
+    path: charts/helm-example
+    repoURL: https://github.com/abhishakeonteddu/gitopps_repo.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
