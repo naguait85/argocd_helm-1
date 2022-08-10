@@ -33,12 +33,12 @@ server:
         syncOptions:
         - CreateNamespace=true
      
-    - name: argocd-apps
-      namespace: argocd
+    - name: sample_application
+      namespace: dev
       destination:
         namespace: dev
         server: https://kubernetes.default.svc
-      project: argocd
+      project: default
       source:
         helm:
           version: v3
@@ -51,6 +51,8 @@ server:
           recurse: true
           jsonnet: {}
       syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
         automated:
           selfHeal: true
           prune: true
