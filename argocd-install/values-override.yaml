@@ -29,10 +29,14 @@ server:
         path: argocd-install/argo-cd
         repoURL: https://github.com/abhishakeonteddu/argocd_helm.git
         targetRevision: HEAD
+      syncPolicy:
+        automated: {}
+          selfHeal: true
+          prune: true
         syncOptions:
         - CreateNamespace=true
         
-     - name: argocd-apps
+    - name: argocd-apps
       namespace: argocd
       destination:
         namespace: argocd
