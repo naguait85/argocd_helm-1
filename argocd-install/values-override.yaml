@@ -5,14 +5,6 @@
 server:
   ## ArgoCD config
   ## reference https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/argocd-cm.yaml
-  configEnabled: true
-  config:
-    repositories: |
-      - type: git
-        url: https://github.com/abhishakeonteddu/argocd_helm.git
-      - name: argo-helm
-        type: helm
-        url: https://argoproj.github.io/argo-helm
      
   additionalProjects: 
   - name: argocd
