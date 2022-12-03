@@ -1,7 +1,7 @@
 # Self Managed Argo CD - App of Everything
 
 **Table of Contents**
-
+https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/
 - [Introduction](#introduction)
 - [Intall Argo CD Using Helm](#intall-argo-cd-using-helm)
 - [Cleanup](#cleanup)
